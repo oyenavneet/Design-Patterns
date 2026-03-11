@@ -20,7 +20,8 @@ Is a creational pattern that provides an interface for creating objects in a sup
 - File Parsing and Document Generation : Systems that need to handle different file formats (e.g., CSV, JSON, XML parsers) or generate various document types (e.g., PDF, Excel, Word generators) use factories to return the correct parser or generator based on the file type.
 
 ---
- ## 3 : Abstract Factory
+
+## 3 : Abstract Factory
 Is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
 In simple terms: 
     Factory Pattern → Create one type of object 
@@ -30,3 +31,48 @@ In simple terms:
   - AWS have  → SES, SNS
   - Twilio have → SendGrid, Twilio SMS
 - Each provider produce a family of related services.
+
+---
+
+## 4 : Builder Pattern 
+Is a creational design pattern that allows the step-by-step construction of complex objects, separating the construction logic from the object's final representation.
+### Use Cases
+- When Class has numerous optional parameters, to avoid the Telescoping Constructor 
+- Order Creation API
+  - In an e-commerce system, order object can have many fields.
+  - Some fields are required and many are optional
+  - Like:
+  - ```
+    Order (Object)
+    orderId
+    userId
+    items
+    totalAmount
+    shippingAddress
+    couponCode (optional)
+    giftWrap (optional)
+    deliveryInstructions (optional)
+    expressDelivery (optional)
+    // if use constructer
+    new Order(id, userId, items, amount, address, coupon, giftWrap, instructions, express);
+    ```
+  - Above example is hard to read 
+  - Order of parameters confusing 
+  - Many optional parameters 
+  - Not maintainable
+- Builder Pattern solves this issue.
+- Example:
+- ```
+  Order order = new Order.Builder("ORD101", "USER22")
+                .totalAmount(1500)
+                .shippingAddress("Lucknow")
+                .couponCode("NEWUSER")
+                .giftWrap(true)
+                .expressDelivery(true)
+                .build();
+  ```
+  
+---
+
+## 4 : Prototype Pattern 
+Is a creational pattern that creates new objects by copying (cloning) an existing instance, known as the prototype, rather than creating them from scratch
