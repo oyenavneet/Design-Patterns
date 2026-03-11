@@ -75,4 +75,12 @@ Is a creational design pattern that allows the step-by-step construction of comp
 ---
 
 ## 4 : Prototype Pattern 
-Is a creational pattern that creates new objects by copying (cloning) an existing instance, known as the prototype, rather than creating them from scratch
+Is a creational pattern that creates new objects by copying (cloning) an existing instance, known as the prototype, rather than creating them from scratch.
+### Useful when
+Object creation involves heavy database calls
+- Object initialization is complex
+- You need many similar Object
+### Use Cases
+- Game Development : Game engines often use the Prototype pattern to efficiently create numerous similar game objects like: characters, weapons, environment
+- Document and Content Management Systems (CMS): In applications that manage documents or templates (e.g., invoices, reports, contracts)
+- Database Record Duplication: The pattern can be used when creating similar objects from existing database records. Instead of re-querying the database for common data, an existing object can be cloned, and only the unique fields are updated.
