@@ -74,7 +74,7 @@ Is a creational design pattern that allows the step-by-step construction of comp
   
 ---
 
-## 4 : Prototype Pattern 
+## 5 : Prototype Pattern 
 Is a creational pattern that creates new objects by copying (cloning) an existing instance, known as the prototype, rather than creating them from scratch.
 ### Useful when
 Object creation involves heavy database calls
@@ -84,3 +84,63 @@ Object creation involves heavy database calls
 - Game Development : Game engines often use the Prototype pattern to efficiently create numerous similar game objects like: characters, weapons, environment
 - Document and Content Management Systems (CMS): In applications that manage documents or templates (e.g., invoices, reports, contracts)
 - Database Record Duplication: The pattern can be used when creating similar objects from existing database records. Instead of re-querying the database for common data, an existing object can be cloned, and only the unique fields are updated.
+
+---
+
+## 6 : Adapter Pattern
+Is a structural design pattern in Java that acts as a bridge between two incompatible interfaces, allowing them to work together without modifying their source code.
+Adapter Pattern allows incompatible interfaces to work together by converting one interface into another expected by the client.
+### Use Cases
+- Integrating Third-party Libraries or APIs
+- Legacy System Integration
+- Data Formate Conversion
+
+---
+
+## 7 : Decorator Pattern
+Is a structural design pattern that allows behavior to be added to individual objects dynamically at runtime without affecting other objects of the same class.
+### Use Cases
+- Product Customization : E-commerce platforms or coffee shop/pizza ordering systems use decorators to allow customers to select various add-ons (e.g., extra cheese, specific coffee add-ons, or car features) and calculate the cumulative cost and description dynamically.
+- Text and UI Formatting : In text processing or GUI development, decorators can dynamically add features like bold text, scrollbars, borders, or different themes to a base component without creating a complex class hierarchy for every combination.
+- Cross-Cutting Concerns (Middleware/AOP) :  In application development, decorators can be used to add functionalities such as logging, authentication, validation, or caching to core business logic components in a modular way.
+- Notification Systems : A basic notification object can be decorated with additional delivery methods (SMS, Slack) or functionality (logging, retries) based on user preferences or system configuration.
+- Data Processing and Security : Data streams can be dynamically enhanced with encryption or compression decorators before being written to disk.
+
+---
+
+## 8 : Proxy Pattern
+Is a structural design pattern that provides a substitute or placeholder object to control access to another (real) object.
+The Proxy Pattern is used when you want to control access to another object.
+A proxy acts as a middle layer between the client and the real object.
+### Use Cases
+- Lazy Loading (Virtual Proxy) : This delays the creation of resource-intensive objects (like large images, files, or database connections) until they are actually needed, improving application startup time and memory usage. The proxy creates the real object only when its methods are first invoked.
+- Access Control (Protection Proxy) : Proxies can enforce security checks and user permissions before allowing access to sensitive operations or data. For example, a proxy might check a user's role before permitting them to run a system command.
+- Caching (Caching Proxy) : The proxy can store the results of expensive operations (e.g., database queries or API calls) and return the cached data for repeated requests, reducing latency and resource consumption.
+- Logging and Monitoring (Logging Proxy): A proxy can intercept all method calls, logging information such as method names, parameters, and execution times for debugging or auditing purposes, without cluttering the business logic of the real object.
+
+---
+
+## 9 : Facade Pattern
+Is a structural pattern that provides a simplified, unified interface to a complex subsystem, hiding internal complexity to make it easier to use.
+The Facade Pattern provides a simplified interface to a complex subsystem.
+Instead of the client interacting with multiple classes, the facade exposes one simple method that internally calls all required services.
+### Use Cases
+- Simplifying Complex Libraries/APIs : When a third-party library has dozens of classes and methods but the application only needs a tiny bit of its functionality, a facade can provide a clean, simple API for the required features.
+- Integrating with Legacy Code : When integrating a new system with an old, complex legacy system, a facade can serve as a wrapper, shielding the new codebase from the legacy system's intricacies and providing a cleaner, modernized interface. 
+- Layering Subsystems : In large applications with multiple subsystems (e.g., inventory, payment, and shipping in an e-commerce system), facades can define clear entry points for each layer, minimizing dependencies and communication between layers.
+- Database Connectivity : The standard Java JDBC driver manager is an example of a facade, providing a unified DriverManager class to obtain database connections, hiding the specific implementations of different database drivers (MySQL, Oracle, etc.).
+
+---
+
+## 10: Composite Pattern
+Is a structural pattern that composes objects into tree-like hierarchies to represent part-whole relationships.
+The Composite Pattern is used when you want to treat individual objects and groups of objects in the same way.
+### Use Cases
+- File Systems
+- Organizational Hierarchies : In a company structure, an Employee can be a single contributor (leaf) or a Manager (composite) who has a team of employees and other managers. Operations like calculating the total payroll or headcount can be handled uniformly across the entire hierarchy.]
+- XML/HTML Parsing : XML or HTML documents have a tree-like structure where elements (composite) can contain content or other nested elements (leaves or composites). Parsers use the composite pattern to navigate and manipulate this structure.
+- Menu Systems: Application menus often have nested structures with MenuItem (leaf) and MenuGroup (composite) components that share a common interface for operations like display() or onClick().
+
+---
+
+## 11: Strategy Pattern
