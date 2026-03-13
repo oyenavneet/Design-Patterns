@@ -144,3 +144,74 @@ The Composite Pattern is used when you want to treat individual objects and grou
 ---
 
 ## 11: Strategy Pattern
+Is a behavioral pattern that enables an object to dynamically change its behavior (algorithm) at runtime by encapsulating a family of algorithms, putting each into a separate class, and making them interchangeable.
+The Strategy Pattern is used when you have multiple ways to perform the same task, and you want to choose the algorithm at runtime.
+Instead of using many if-else statements, you encapsulate each algorithm into separate classes and switch them dynamically.
+### Use Cases
+- Payment Processing :  E-commerce applications often support various payment methods (e.g., credit card, PayPal, Apple Pay, bank transfer). Each method has its own specific processing logic, which can be encapsulated in separate strategy classes. The system can switch between these strategies based on the user's selection at runtime.
+- Sorting and Searching Algorithms : Applications that need to sort data in different ways (e.g., sort products by price, popularity, or rating on an e-commerce site) can use the Strategy pattern. The specific sorting algorithm (e.g., Quick Sort, Merge Sort) can be selected at runtime based on the data set or user preference.
+- File Compression : Utilities that offer different compression methods (e.g., ZIP, GZIP, TAR) use the Strategy pattern. Each compression algorithm is a concrete strategy that the client can choose from dynamically.
+- Navigation Systems : Car navigation systems can use different algorithms to calculate a route (e.g., shortest route, fastest route, scenic route). The user can select their preferred strategy, and the system dynamically applies the chosen algorithm.
+- Pricing and Discount Calculation : Retail or e-commerce systems can apply various pricing strategies or discounts (e.g., percentage discount, fixed discount, happy hour offer) based on different conditions like user type, time of day, or sales promotions.
+- Text/Image Formatting or Rendering : In applications that process or display content, different formatting or rendering algorithms can be used as interchangeable strategies, allowing the system to adapt to various output requirements or performance settings.
+
+---
+
+## 12: Observer Pattern
+Is a behavioral pattern that defines a one-to-many dependency, allowing an object (the subject/publisher) to automatically notify dependents (observers/subscribers) about state changes
+The Observer Pattern is used when one object (Subject) changes state and multiple other objects (Observers) need to be notified automatically.
+It is commonly used in event-driven systems.
+### Use Cases
+- Model-View-Controller (MVC) Architecture : In MVC frameworks, the Model (subject) notifies the View (observer) when its underlying data changes. This allows the view to update the user interface accordingly, decoupling the data logic from the presentation logic.
+- Real-time Data Updates : Applications requiring real-time data, such as stock market apps, weather monitoring systems, or chat applications, use the observer pattern to push updates to multiple interested clients as soon as the data changes.
+- Social Media Notifications and RSS Feeds : When a user subscribes to a YouTube channel or follows someone on social media, they act as observers to the channel/user (subject). They are notified automatically when new content is posted.
+### Note
+- In Spring-boot @EventListener annotation used to make a component as observer 
+- Spring automatically notifies listeners when the event occurs.
+
+---
+
+## 13: Command Pattern
+Is a behavioral pattern that turns a request into a stand-alone object, separating the invoker of an action from the receiver that performs it. This decoupling enables complex functionality like parameterized requests, queuing, logging, and undoable operations.
+### Use Cases
+- Undo/Redo Functionality : This is a classic application in text editors and drawing tools. Each user action is stored as a command object in a history stack. To undo, the application pops the last command and calls its corresponding undo() method.
+- Queuing and Scheduling Tasks : Since commands are objects, they can be placed in a queue or scheduled for execution at a later time or by a separate thread (e.g., in a job scheduler, thread pool, or message queue system)
+- Logging and Auditing : Commands can be logged persistently to provide a history of all actions performed within the system. This log can be used for debugging, auditing, or reconstructing the system's state after a crash.
+- Database Transaction Management : Each query or operation within a transaction can be wrapped in a command object. This allows for executing operations sequentially and rolling them back if one fails, ensuring data consistency.
+- Workflow Orchestration and Infrastructure Automation : Commands are useful in systems where operations need to be performed in a specific order or across different services, such as a "Start System" command that triggers multiple sub-commands like turning on a server and checking database status.
+
+---
+
+## 14: State Pattern
+Is a behavioral pattern that allows an object to change its behavior when its internal state changes.
+Instead of using many if-else or switch statements, each state is represented as a separate class.
+The object delegates behavior to the current state object.
+### Use Cases
+- Game Development : Managing character behaviors, such as a player's different states in a Super Mario game (Child, Adult, Army state), each with unique abilities and rules for power-ups or encountering enemies.
+- Vending Machines : Managing states like Idle, ItemSelected, HasMoney, and Dispensing. Each state handles user interactions differently (e.g., you can't dispense an item before money is inserted). 
+- Media Players : Handling actions like play, pause, and stop where the response to a button press depends on the current playback status (e.g., pressing "play" when already playing might be ignored or throw an error).
+- Workflow and Document Management: Modeling processes where objects move through specific stages (e.g., a document's lifecycle from Draft to UnderReview to Published). Each state has different allowed actions and permissions.
+
+---
+
+## 15: Template Method
+Is a behavioral design pattern that defines the skeleton of an algorithm in a base (abstract) class, but lets subclasses redefine specific steps without changing the algorithm's overall structure.
+### Use Cases
+- Frameworks and Libraries: Frameworks often use the template method to define the generic flow of an operation, allowing developers to extend specific parts.
+- Data Processing and Reporting : The pattern is ideal for scenarios involving data processing pipelines or report generation where the high-level steps are consistent.
+- Workflows and Business Processes : The classic example involves preparing hot beverages, where the prepareRecipe method defines the fixed sequence (boil water, brew, pour in cup, add condiments), but the brew and addCondiments steps vary for tea versus coffee.
+- Game Development and AI : A game engine might use a template method to define the main game loop's structure (initialize, update game logic, render graphics, handle input).
+
+---
+
+## 16: Chain of Responsibility
+Is a behavioral design pattern that passes requests along a chain of handlers. Upon receiving a request, each handler decides either to process it or pass it to the next handler in the chain.
+It helps remove tight coupling between the sender and receiver.
+
+### Use Cases
+- Web Middleware & Pipelines: Frameworks like Express.js or Laravel use this to pass requests through a series of handlers (e.g., authentication → validation → logging → business logic).
+- Authorization & Validation: Security frameworks use this to run multiple checks in sequence (e.g., firewall → check session → check permissions).
+- Approval/Escalation Chains: Business processes where requests (e.g., expenses) are escalated from junior to senior managers if not approved.
+
+---
+
