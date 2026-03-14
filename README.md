@@ -215,3 +215,47 @@ It helps remove tight coupling between the sender and receiver.
 
 ---
 
+## 17: Mediator Pattern
+Is a behavioral pattern that reduces chaotic, direct dependencies between objects by forcing them to communicate solely through a mediator object.
+
+### Use Cases
+- Air Traffic Control Systems : In an air traffic control system, aircraft (colleagues) do not communicate directly with each other. Instead, they communicate with a central control tower (the mediator), which coordinates all movements, manages landing and takeoff sequences, and prevents collisions, ensuring a safe and organized system.
+- Event-Driven Architectures : A mediator can act as a central event bus or dispatcher, routing events from various producers to interested consumers, which promotes a loosely coupled, modular system.
+- Decoupling Business Logic Components : In systems where changes in one class trigger a cascade of changes in several other classes, the mediator can extract all the interdependencies into a separate class, isolating changes and improving component reusability.
+- Chat Applications : In a chat room or instant messaging system, users (colleagues) send messages to a central server (the mediator), which then routes the messages to the appropriate recipients. This prevents each user from needing direct connections to every other user.
+- Workflow Management Systems : For orchestrating complex processes or workflows with multiple steps and participants, a mediator can manage task dependencies, data exchange, and overall execution flow.
+
+---
+
+## 18: Memento Patter
+Is a behavioral pattern used to capture and save an object's internal state (a "snapshot") without violating encapsulation, allowing it to be restored later.
+
+### Use Cases
+- Undo/Redo Functionality : This is the most common application, seen in almost all modern applications, such as text editors (like Microsoft Word, IDEs), graphic design software, and more, to revert or reapply changes made to a document or design.
+- Saving Game Progress/Checkpoints : In video games, the Memento pattern allows the game state (e.g., player's score, position, level, inventory) to be saved at specific points (checkpoints) and restored later when a player loads the game.
+- Transaction Rollback Systems : In systems like databases or banking simulations, the Memento pattern can be used to capture the state before a series of operations or transactions begin. If any operation fails, the system can use the stored memento to roll back to the last stable state.
+- Caching Object States : In some cases, an object's state can be cached using the Memento pattern to improve performance or avoid redundant calculations, especially if recreating the state is resource-intensive.
+- Temporary State Storage : The pattern can be used when an object's state needs to be temporarily preserved and restored later without affecting the main object's state, for example, in complex multi-step forms where a user might need to revert to a previous step.
+
+---
+
+## 19: Iterator Pattern
+Is a behavioral pattern that allows you to traverse elements of a collection sequentially without exposing its underlying representation, such as a list, stack, or tree. 
+
+### Use cases
+- Database Query Results : Iterators are used to process large database result sets efficiently by fetching records in small chunks (pagination), rather than loading everything into memory at once.
+- Complex Data Structures : It allows for simplified navigation of complex structures like trees or graphs. Different iterators can be implemented for different traversal algorithms (e.g., depth-first or breadth-first search) without cluttering the main collection class.
+- Multiple, Independent Traversals : The pattern supports having multiple iterators active on the same collection at the same time, each maintaining its own state and progress (e.g., two different functions looping over the same list concurrently).
+- File System Traversal : It abstracts the complexity of navigating file systems (directories, subdirectories, files) to provide a simple, uniform interface for applying operations like searching or deleting files.
+- Social Media Feeds & Playlists : Applications like social media platforms or music players use iterators to load and display feeds or play songs in sequence or in specific orders (like shuffled or filtered playlists) without the client code needing to know the storage details.
+
+---
+
+## 20: Visitor Pattern
+Is a behavioral design pattern that allows you to separate algorithms or operations from the objects they operate on.
+
+### Use cases
+- Compiler Design : The pattern is widely used in compilers to traverse an abstract syntax tree (AST) and perform various operations like type checking, code generation, and optimization, without changing the underlying node classes.
+- Calculating Properties of Complex Structures : For object structures like a shopping cart with different items (books, electronics, etc.), a visitor can be used to calculate a total price, apply discounts, or determine shipping costs in a centralized way.
+- File System Operations : Performing operations on file system elements (files and directories) such as calculating total size, creating a backup, or applying permissions, where the operation logic is separate from the file/directory classes themselves.
+- HR Management Systems : Performing different types of operations on various employee types (full-time, contract, intern), such as tax calculations, performance reports, or benefits administration, without modifying the core employee classes.
